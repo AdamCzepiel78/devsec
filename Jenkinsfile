@@ -24,7 +24,7 @@ pipeline {
       }
       stage('Docker Build and Push'){
         steps {
-          docker.withRegistry('https://registry.hub.docker.com', 'dockerhub') {
+          withDockerRegistry('https://registry.hub.docker.com', 'dockerhub') {
             sh 'printenv'
             sh 'docker build -t adamczepiel/number_app:""$GIT_COMMIT"" .'
             sh 'docker push adamczepiel/number_app:""$GIT_COMMIT""'
