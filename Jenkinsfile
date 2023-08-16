@@ -8,7 +8,7 @@ pipeline {
               archiveArtifacts artifacts: 'target/*.jar',
                 allowEmptyArchive: false,
                 fingerprint: true,
-                onlyIfSuccessful: true
+                onlyIfSuccessful: true // lime 
             }
         }   
     }
