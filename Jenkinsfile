@@ -36,7 +36,15 @@ pipeline {
 
     stage('Sonarqube - SAST'){
       steps{
-        sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devsecops-numeric-application -Dsonar.projectName='devsecops-numeric-application' -Dsonar.host.url=http://aczjenkins.eastus.cloudapp.azure.com:9000 -Dsonar.token=sqp_44830c0debe47cfcd6563697dc55a0a107483e1f"
+        withSonarQubeEnv('Sonarqube'){
+          sh "mvn clean verify sonar:sonar -Dsonar.projectKey=devsecops-numeric-application -Dsonar.projectName='devsecops-numeric-application' -Dsonar.host.url=http://aczjenkins.eastus.cloudapp.azure.com:9000 -Dsonar.token=sqp_44830c0debe47cfcd6563697dc55a0a107483e1f"
+        }
+        timeout(time: 2, unit: 'MINUTES'){
+          script{
+            waitForQualityGate abortPipeline: true
+          }
+        }
+        
       }
     }
     
