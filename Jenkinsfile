@@ -58,5 +58,4 @@ pipeline {
       }
     }
   }
-  sqp_44830c0debe47cfcd6563697dc55a0a107483e1f
 }
