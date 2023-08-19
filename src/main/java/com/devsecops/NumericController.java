@@ -39,7 +39,7 @@ public class NumericController {
 		public int increment(@PathVariable int value) {
 			ResponseEntity<String> responseEntity = restTemplate.getForEntity(BASE_URL + '/' + value, String.class);
 			String response = responseEntity.getBody();
-			logger.info("Value Received in Request - " + String.valueOf(value));
+			logger.info(String.format("Value Received in Request - %s", String.valueOf(value)));
 			logger.info("Node Service Response - " + response);
 			return Integer.parseInt(response);
 		}
