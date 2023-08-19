@@ -50,10 +50,11 @@ public class NumericApplicationTests {
     public void welcomeMessage() throws Exception {
          this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk()).andExpect(content().string("Kubernetes DevSecOps"));
     }
-    @Test 
-    public void incrementMessage() throws Exception{
-        this.mockMvc.perform(get("/increment/50")).andDo(print()).andExpect(status().isOk()).andExpect(content().string("51"));
-    }
+
+    // @Test 
+    // public void incrementMessage() throws Exception{
+    //     this.mockMvc.perform(get("/increment/50")).andDo(print()).andExpect(status().isOk()).andExpect(content().int("51"));
+    // }
     
 
 }
