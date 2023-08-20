@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  sonarqube:
+    container_name: sonarqube
+    image: sonarqube:latest
+    ports: 
+      - 9000:9000
+    networks:
+      - devsecops
+    environment:
+      - SONAR_ES_BOOTSTRAP_CHECKS_DISABLE=true
+    volumes:
+      - sq_data:/opt/sonarqube/data
+      - sq_extensions:/opt/sonarqube/extensions
+      - sq_logs:/opt/sonarqube/logs
+    restart: unless-stopped
+
+volumes:
+  sq_data:
+  sq_extensions:
+  sq_logs:
+    
+networks:
+  devsecops:
+    external: true

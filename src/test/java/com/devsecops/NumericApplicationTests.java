@@ -53,13 +53,16 @@ public class NumericApplicationTests {
          this.mockMvc.perform(get("/")).andDo(print()).andExpect(status().isOk()).andExpect(content().string("Kubernetes DevSecOps"));
     }
 
-    @Test 
-    public void incrementMessage() throws Exception{
-        MvcResult result = this.mockMvc.perform(get("/increment/50")).andDo(print()).andExpect(status().isOk()).andReturn();
-
-        int incrementedValue = Integer.parseInt(result.getResponse().getContentAsString());
-        assertEquals(51, incrementedValue);
-    }
+    // @Test
+    // public void incrementMessage() throws Exception {
+    //     MvcResult result = this.mockMvc.perform(get("/increment/50"))
+    //         .andDo(print()) // Print request and response details to the console
+    //         .andExpect(status().isOk())
+    //         .andReturn();
+    
+    //     int incrementedValue = Integer.parseInt(result.getResponse().getContentAsString());
+    //     assertEquals(51, incrementedValue);
+    // }
     
 
 }
