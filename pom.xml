@@ -91,10 +91,10 @@
 				<version>6.1.6</version>
 				<configuration>
 					<format>ALL</format>
-					<failBuildOnCVSS>100</failBuildOnCVSS>
+					<failBuildOnCVSS>11</failBuildOnCVSS>
 				</configuration>
 			</plugin>
-			
+
 		</plugins>
 	</build>
 
